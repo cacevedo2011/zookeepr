@@ -136,3 +136,14 @@ app.get("/zookeepers", (req, res) => {
 app.listen(PORT, () => {
   console.log(`API server now on port ${PORT}!`);
 });
+
+app.post('/api/animals', (req, res) => {
+  // req.body is where our incoming content will be
+  console.log(req.body);
+  res.json(req.body);
+});
+
+// parse incoming string or array data
+app.use(express.urlencoded({ extended: true }));
+// parse incoming JSON data
+app.use(express.json());
